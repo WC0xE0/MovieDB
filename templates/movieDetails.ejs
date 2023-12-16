@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= movie.title %></title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <h1><%= movie.title %> (<%= movie.year %>)</h1>
+  <img src="<%= movie.posterUrl %>" alt="<%= movie.title %> Poster">
+  <p><strong>Director:</strong> <%= movie.director %></p>
+  <p><strong>Actors:</strong> <%= movie.actors %></p>
+  <p><strong>Plot:</strong> <%= movie.plot %></p>
+  <p><strong>Awards:</strong> <%= movie.awards %></p>
+  
+  <h2>Reviews</h2>
+  <% reviews.forEach(review => { %>
+    <div class="review">
+      <p><%= review.content %></p>
+      <p>-- <%= review.commenter %>, <%= review.createdAt.toDateString() %></p>
+    </div>
+  <% }) %>
+
+  <h3>Add a Review</h3>
+  <form action="/review/<%= movie.imdbId %>" method="post">
+    <input type="text" name="commenter" placeholder="Your name">
+    <textarea name="content" placeholder="Your review"></textarea>
+    <button type="submit">Submit Review</button>
+  </form>
+  
+  <a href="/">Back to Home</a>
+</body>
+</html>
