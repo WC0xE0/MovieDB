@@ -1,4 +1,4 @@
-This is the final project of CMSC335: Web Applications
+This is the final project of CMSC335: Web Application Development with JavaScript
 
 App Description: Search a movie by name to see its details and/or comment on it. 
 API links: https://www.omdbapi.com/
